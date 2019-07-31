@@ -5,7 +5,7 @@ from tkinter import *
 import sqlite3
 import cv2
 import os
-
+from subprocess import call
 
 def get_user_id(name):
 	conn = sqlite3.connect("database.db")
@@ -45,15 +45,20 @@ def record_face():
 		
 			for (x,y,w,h) in faces:
 				sample_number+=1
+				
 				cv2.imwrite("dataset/User."+str(user_id)+"."+str(sample_number)+".jpg",gray[y:y+h,x:x+w])
 				cv2.rectangle(video,(x,y),(x+w,y+w),(0,255,0),2)
+				
 			cv2.imshow("Capturing Face",video)
 			cv2.waitKey(1)
+			
 			if (sample_number > 25):
 				break
 		
 		webcam.release()
 		cv2.destroyAllWindows()
+		
+		call(["python","./trainer.py"])
 		
 #-------------------------------------------
 #             Graphic Interface
