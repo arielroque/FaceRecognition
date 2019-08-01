@@ -1,5 +1,5 @@
-#FaceDetection 1.0
-#(C) 2019 Ariel Roque
+#Face Recognition
+#Created by Ariel Roque
 
 from tkinter import *
 from subprocess import call
@@ -20,8 +20,6 @@ def get_last_photo_number(id_user):
 	
 	for i in files:
 		p = i.split(".")[1]
-		
-		print(p)
 		
 		if (int(p) == id_user):
 			last_number+=1
@@ -60,6 +58,8 @@ def record_face(last_photo_number):
 	webcam = cv2.VideoCapture(0)
 			
 	sample_number = last_photo_number + 1
+	
+	gui.destroy()
 		
 	while(True):
 		r,video = webcam.read()
@@ -84,7 +84,6 @@ def record_face(last_photo_number):
 	call(["python",TRAIN_FACE_PATH])
 
 def improve_recognition():
-	
 	user_id = search_user(name.get())
 	
 	if (user_id == -1):

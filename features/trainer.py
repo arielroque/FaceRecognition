@@ -1,10 +1,11 @@
 #Face Recognition
 #Created by Ariel Roque
 
-import os
-import cv2
-import numpy as np
 from PIL import Image
+import tkinter.messagebox
+import numpy as np
+import cv2
+import os
 
 TRAIN_DATA_PATH = "recognizer/trainingData.yml"
 RECOGNIZER_PATH = "recognizer"
@@ -42,6 +43,10 @@ recognizer.train(faces,IDs)
 recognizer.save(TRAIN_DATA_PATH)
 
 cv2.destroyAllWindows()
+
+tkinter.messagebox.showinfo("Operation", "Operation successfull finished")
+
+
 	
 	
 	
