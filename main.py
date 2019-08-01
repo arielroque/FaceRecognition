@@ -7,8 +7,9 @@ from subprocess import call
 import os
 
 DATABASE_NAME = "database.db"
-RECORD_FACE_PATH = "./record_face.py"
-RECOGNIZE_FACE_PATH = "./recognize.py"
+RECORD_FACE_PATH = "features/record_face.py"
+RECOGNIZE_FACE_PATH = "features/recognition.py"
+IMPROVE_FACE_PATH =  "features/improve_recognition.py"
 
 def call_record_face():
 	global RECORD_FACE_PATH
@@ -17,6 +18,10 @@ def call_record_face():
 def call_recognize_face():
 	global RECOGNIZE_FACE_PATH
 	call(["python",RECOGNIZE_FACE_PATH])
+	
+def call_improve_face():
+	global RECOGNIZE_FACE_PATH
+	call(["python",IMPROVE_FACE_PATH])
 
 
 def prepare_database():
@@ -48,7 +53,7 @@ record_face.place(x = 50,y = 40)
 recognize_face = Button(gui,text = "   Recognize Face  ", command = call_recognize_face)
 recognize_face.place(x = 50,y = 80)
 
-improve_recognition = Button(gui,text = "Improve Recognition")
+improve_recognition = Button(gui,text = "Improve Recognition", command = call_improve_face)
 improve_recognition.place(x = 50, y = 120)
 
 prepare_database()
