@@ -1,5 +1,5 @@
 # Face Recognition
-An face recognition system using Python, OpenCV,Tkinter and Sqlite3. This aplication uses the Local Binary Pattern Historical (LBPH).
+An face recognition system using Python, OpenCV, Tkinter and Sqlite3. This aplication uses the Local Binary Pattern Historical (LBPH).
 
 ## Features
   - Record Faces using a database 
